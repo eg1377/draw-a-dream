@@ -1,40 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import img1 from '../attets/img/Utopia2.jpg';
-import img2 from '../assets/img/Peaceful1.jpg';
-import img3 from '../assets/img/Peaceful2.jpg';
-import img4 from '../assets/img/Peaceful3.jpg';
-import img5 from '../assets/img/Nightmare.png';
-import img6 from '../assets/img/Rest.jpg';
-import img7 from '../assets/img/Utopia.jpg';
-import img8 from '../assets/img/Utopia2.jpg';
-import img9 from '../assets/img/main.png';
-import axios from 'axios';
+
+interface Image {
+    src: string;
+    title: string;
+    description: string;
+  }
 
 // breakpoint를 정의합니다.
 const sizes = {
-  mobile: '480px',
-  tablet: '1400px',
-  desktop: '1400px',
-};
-
-// 미디어 쿼리를 쉽게 사용할 수 있는 helper 객체를 생성합니다.
-const media = {
-  mobile: `(max-width: ${sizes.mobile})`,
-  tablet: `(max-width: ${sizes.tablet})`,
-  desktop: `(max-width: ${sizes.desktop})`,
-};
-
-
+    mobile: '480px',
+    tablet: '1400px',
+    desktop: '1400px',
+  };
+  
+  // 미디어 쿼리를 쉽게 사용할 수 있는 helper 객체를 생성합니다.
+  const media = {
+    mobile: `(max-width: ${sizes.mobile})`,
+    tablet: `(max-width: ${sizes.tablet})`,
+    desktop: `(max-width: ${sizes.desktop})`,
+  };
 
 const GalleryContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
-  max-width: 1200px;
-  margin: 5% auto;
+  margin: auto;
   overflow-y: auto;
-  
+
   @media ${media.tablet} {
     /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
     gap: 0.5rem;
@@ -52,30 +45,15 @@ const GalleryContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-
+  cursor: pointer;
   img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
     border-radius: 6px;
   }
-
   &:hover img {
     transform: scale(1.1);
-  }
-
-  &:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-
   }
 `;
 
@@ -118,49 +96,6 @@ const ModalText = styled.div`
   }
 `;
 
-
-
-const sampleImages = [
-  {
-    src: img1,
-    title: "낙원\n(Paradise or Disaster)", description: "72.7x90.9cm_장지에 채색_2022"
-  },
-  {
-    src: img2,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 2"
-  },
-  {
-    src: img3,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 1"
-  },
-  {
-    src: img4,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 2"
-  },
-  {
-    src: img5,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 1"
-  },
-  {
-    src: img6,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 2"
-  },
-  {
-    src: img7,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 1"
-  },
-  {
-    src: img8,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 2"
-  },
-  {
-    src: img9,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", description: "Description for image 2"
-  },
-
-
-
-];
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -185,39 +120,46 @@ const ModalContainer = styled.div`
   cursor: pointer;
 `;
 
-
-const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = React.useState<{ src: string, title: string, description: string } | null>(null);
-
-  const handleImageClick = (image: { src: string, title: string, description: string }) => {
-    setSelectedImage(image);
+interface ImageItemProps {
+    image: Image;
+    onClick: () => void;
   }
-
-  const handleCloseModal = () => {
-    setSelectedImage(null);
+  
+  const ImageItem: React.FC<ImageItemProps> = ({ image, onClick }) => (
+    <ImageContainer onClick={onClick}>
+      <img src={image.src} alt={image.title} />
+    </ImageContainer>
+  );
+  
+  interface ImageModalProps {
+    image: Image;
+    onClose: () => void;
   }
+  
+  const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => (
+    <>
+      <Overlay onClick={onClose} />
+      <ModalContainer>
+        <ModalImage src={image.src} />
+        <ModalText>{image.title}</ModalText>
+        <ModalText>{image.description}</ModalText>
+      </ModalContainer>
+    </>
+  );
+  
+// Overlay, ModalContainer, ModalImage, ModalText 스타일은 동일하게 유지합니다.
+
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <GalleryContainer>
       {sampleImages.map((imageObj, index) => (
-        <ImageContainer key={index} onClick={() => handleImageClick(imageObj)}>
-          <img src={imageObj.src} alt={`Gallery ${index + 1}`} />
-        </ImageContainer>
+        <ImageItem key={index} image={imageObj} onClick={() => setSelectedImage(imageObj)} />
       ))}
-      {selectedImage && (
-        <>
-          <Overlay onClick={handleCloseModal} />
-          <ModalContainer>
-            <ModalImage src={selectedImage.src} />
-            <ModalText>{selectedImage.title}</ModalText>
-            <ModalText>{selectedImage.description}</ModalText>
-          </ModalContainer>
-        </>
-      )}
+      {selectedImage && <ImageModal image={selectedImage} onClose={() => setSelectedImage(null)} />}
     </GalleryContainer>
   );
 };
-
-
 
 export default Gallery;
