@@ -3,6 +3,10 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import React from "react";
 
+const Back =styled.div`
+background-color: black;
+`
+
 // breakpoint를 정의합니다.
 const sizes = {
   mobile: '30rem',
@@ -35,12 +39,12 @@ const StyledMain = styled.div`
 
 const Root = (): JSX.Element => {
   return (
-    <>
+    <Back>
       <Header />
       <StyledMain>
         <Outlet />
       </StyledMain>
-    </>
+    </Back>
   );
 };
 

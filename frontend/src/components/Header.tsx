@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
       color: #fff;
     }
 `;
-const Menu =styled.div`
+const Menu = styled.div`
   font-size: 2rem;
 
 `
@@ -120,22 +120,23 @@ const HeaderStyle = styled.div`
 const SideMenu = styled.div<{ isOpen: boolean }>`
     z-index: 1000;
     position: fixed;
-    top: 0;
+    top: 65px;
     right: ${props => props.isOpen ? "0" : "-400px"}; // 위치를 오른쪽으로 변경하고, isOpen에 따라 위치를 조절합니다.
-    width: 300px;
-    height: 100%;
+    width: 15rem;
+    height: 35%;
     background-color: #3f3f3f83;
     color: #fff;
     transition: right 0.3s;  // 애니메이션 효과도 right 속성에 적용합니다.
     padding: 1rem;
     box-shadow: -2px 0 5px rgba(0,0,0,0.5); // 그림자의 위치도 변경합니다.
+    border-radius: 20px 0px 0px 20px;
 
 
 
     .buttonList{
       display: flex;
       flex-direction: column;
-      margin-top: 30%;
+      margin-top: 5%;
       gap: .3125rem;
       font-size :2rem ;
       font-weight: bolder;
@@ -200,40 +201,44 @@ const Heaber = () => {
                     <div className="top-bar">
                         <div className="title">Draw a Dream</div>
                         {isMobile && (
-                            <FaBars onClick={toggleMobileMenu} style={{ cursor: 'pointer' }} />
+                            <FaBars onClick={toggleMobileMenu} style={{ cursor: 'pointer',fontSize:'1rem'}} />
                         )}
                         {!isMobile && (
                             <div className="navbar">
                                 <StyledLink to='/'>
                                     <Menu className="tab">Home</Menu>
                                 </StyledLink>
-                                <div className="tab">About</div>
-                                <div className="tab">Projects</div>
+                                <StyledLink to='/profile' >
+                                    <div className="tab">About</div>
+                                </StyledLink>
+                                <StyledLink to='/gallery'>
+                                    <div className="tab">Projects</div>
+                                </StyledLink>
                                 <div className="tab">Contact</div>
                             </div>
                         )}
                     </div>
                 </header>
-            
 
-            <SideMenu isOpen={menuOpen} ref={menuRef}>
 
-                <div className='buttonList'>
-                    <StyledLink to='/'>
-                        <p style={{ fontFamily: 'Lobster' }}>Main</p>
-                    </StyledLink>
-                    <StyledLink to='/profile'>
-                        <p style={{ fontFamily: 'Lobster' }}>Profile</p>
-                    </StyledLink>
-                    <StyledLink to='/gallery'>
-                        <p style={{ fontFamily: 'Lobster' }}>Gallery</p>
-                    </StyledLink>
-                    <StyledLink to='/imageUpload'>
-                        <p style={{ fontFamily: 'Lobster' }}>ImageUpload</p>
-                    </StyledLink>
+                <SideMenu isOpen={menuOpen} ref={menuRef}>
 
-                </div>
-            </SideMenu>
+                    <div className='buttonList'>
+                        <StyledLink to='/'>
+                            <p style={{ fontFamily: 'Lobster' }}>Main</p>
+                        </StyledLink>
+                        <StyledLink to='/profile'>
+                            <p style={{ fontFamily: 'Lobster' }}>Profile</p>
+                        </StyledLink>
+                        <StyledLink to='/gallery'>
+                            <p style={{ fontFamily: 'Lobster' }}>Gallery</p>
+                        </StyledLink>
+                        <StyledLink to='/imageUpload'>
+                            <p style={{ fontFamily: 'Lobster' }}>ImageUpload</p>
+                        </StyledLink>
+
+                    </div>
+                </SideMenu>
 
             </HeaderStyle>
         </>
