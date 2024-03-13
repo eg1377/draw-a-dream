@@ -43,7 +43,6 @@ const HeaderStyle = styled.div`
     align-items: center;
     background-color: #000000;
     color: #fff;
-    /* padding: 1rem; */
 }
 
 .top-bar .title {
@@ -61,7 +60,7 @@ const HeaderStyle = styled.div`
   align-items: center;
   display: flex;
   flex: 0 1 auto;
-  gap: 2.5rem;
+  gap: 2rem;
   justify-content: end;
   position: relative;
 
@@ -73,7 +72,7 @@ const HeaderStyle = styled.div`
 .top-bar .tab {
   color: #ffffff;
   font-family: "Lobster", Helvetica;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 24px;
@@ -120,10 +119,10 @@ const HeaderStyle = styled.div`
 const SideMenu = styled.div<{ isOpen: boolean }>`
     z-index: 1000;
     position: fixed;
-    top: 65px;
+    top: 4.0625rem;
     right: ${props => props.isOpen ? "0" : "-400px"}; // 위치를 오른쪽으로 변경하고, isOpen에 따라 위치를 조절합니다.
     width: 15rem;
-    height: 35%;
+    height: 40%;
     background-color: #3f3f3f83;
     color: #fff;
     transition: right 0.3s;  // 애니메이션 효과도 right 속성에 적용합니다.
@@ -137,7 +136,7 @@ const SideMenu = styled.div<{ isOpen: boolean }>`
       display: flex;
       flex-direction: column;
       margin-top: 5%;
-      gap: .3125rem;
+      gap: .25rem;
       font-size :2rem ;
       font-weight: bolder;
       padding-left: 5%;
@@ -201,7 +200,7 @@ const Heaber = () => {
                     <div className="top-bar">
                         <div className="title">Draw a Dream</div>
                         {isMobile && (
-                            <FaBars onClick={toggleMobileMenu} style={{ cursor: 'pointer',fontSize:'1rem'}} />
+                            <FaBars onClick={toggleMobileMenu} style={{ cursor: 'pointer',fontSize:'1.5rem'}} />
                         )}
                         {!isMobile && (
                             <div className="navbar">
