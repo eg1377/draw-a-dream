@@ -122,7 +122,7 @@ const SideMenu = styled.div<{ isOpen: boolean }>`
     top: 4.0625rem;
     right: ${props => props.isOpen ? "0" : "-400px"}; // 위치를 오른쪽으로 변경하고, isOpen에 따라 위치를 조절합니다.
     width: 15rem;
-    height: 40%;
+    height: 29rem;
     background-color: #3f3f3f83;
     color: #fff;
     transition: right 0.3s;  // 애니메이션 효과도 right 속성에 적용합니다.
@@ -213,7 +213,9 @@ const Heaber = () => {
                                 <StyledLink to='/gallery'>
                                     <div className="tab">Projects</div>
                                 </StyledLink>
-                                <div className="tab">Contact</div>
+                                <StyledLink to='/imageUpload'>
+                                <div className="tab">ImageUpload</div>
+                                /</StyledLink>
                             </div>
                         )}
                     </div>

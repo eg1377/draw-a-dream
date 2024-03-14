@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react';
 const BackGround = styled.div`
 background-color: black;
 height: 100%;
-height: 400vh;
+height:  800vh  auto;
 margin-bottom: 10%;
 margin-top: 10%;
 `

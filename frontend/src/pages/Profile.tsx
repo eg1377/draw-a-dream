@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for style
 import OnlyStar from '../components/stars/Star';
+import ProfileText from '../components/ProfileText';
 AOS.init();
 
 // breakpoint를 정의합니다.
@@ -37,12 +38,11 @@ const StyledComponent = styled.div`
 
 const Background = styled.div<{ opacity: number }>`
   background-color: rgba(0, 0, 0, ${props => props.opacity}); // 배경색의 투명도를 조절
-  height: 50vh; // 예시로 높이를 설정
   transition: background-color 0.3s ease; // 부드러운 효과를 위한 전환 효과
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 80vh;
+  /* height: 80vh; */
   text-align: center;
 `;
 
@@ -170,16 +170,18 @@ const MyProfile: React.FC = () => {
   const opacity = maxScrollY ? 1.2 - Math.min(scrollY / maxScrollY, 1) : 1;
 
   return <StyledComponent>
+
     <Background opacity={opacity}>
+    <OnlyStar />
+
       {positions.map((pos, index) => (
         <GlowEffect key={index} x={pos.x} y={pos.y} style={{ transitionDelay: `${index * 0.05}s` }} />
       ))}
       <GlowEffect x={position.x} y={position.y} />
-
-      <OnlyStar />
-
     </Background>
+    <ProfileText />
     <ArrowStyle opacity={opacity}></ArrowStyle>
+
 
     <BackgroundAll opacity={opacity}>
       {positions.map((pos, index) => (
@@ -188,6 +190,7 @@ const MyProfile: React.FC = () => {
       <GlowEffect x={position.x} y={position.y} />
       <OnlyStar />
     </BackgroundAll>
+
 
 
 
