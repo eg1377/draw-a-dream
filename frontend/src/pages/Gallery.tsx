@@ -3,6 +3,7 @@ import { Stars } from '../components/stars/Stars';
 import Gallery_A from '../components/Gallery_A';
 import Carousel from '../components/carousel/Carousel';
 import React, { useState, useEffect } from 'react';
+import ImageGallery from '../components/ImageGallery';
 
 
 const BackGround = styled.div`
@@ -74,7 +75,8 @@ const Gallery: React.FC = () => {
 
             <Stars />
             <Carousel />
-            <Gallery_A />
+            {/* <Gallery_A /> */}
+            <ImageGallery/>
         </BackGround>
     );
 };

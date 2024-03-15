@@ -8,8 +8,8 @@ AOS.init();
 
 const sizes = {
   mobile: '480px',
-  tablet: '1400px',
-  desktop: '1024px',
+  tablet: '1200px',
+  desktop: '1200px',
 };
 
 const media = {
@@ -137,7 +137,7 @@ const Dream = styled.span`
 export const Title = styled.div`
   height: 100vh;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 0;
   right: 0;
   color: #FFF;
@@ -280,7 +280,7 @@ gap: 6.25rem;
 padding: 5%;
 font-Size: 1.875rem;
 
-@media ${media.tablet} {
+@media ${media.mobile} {
     flex-direction: column;
     gap: 3rem;
     font-size: 1rem;

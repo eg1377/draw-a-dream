@@ -161,113 +161,113 @@ const Overlay = styled.div`
 const sampleImages = [
   {
     src: img1,
-    title: "낙원",
+    title: "낙원", 
     description: "72.7x90.9cm_장지에 채색_2022",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img2,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 2",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
 
   },
   {
     src: img3,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
 
   },
   {
     src: img4,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img5,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img6,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img7,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img8,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img9,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img10,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img11,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img12,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img13,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img14,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img15,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img16,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img17,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
   {
     src: img18,
-    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022",
+    title: "낙원(Paradise or Disaster)_72.7x90.9cm_장지에 채색_2022", 
     description: "Description for image 1",
-    ingredient: "72.7x90.9cm_장지에 채색_2022"
+    ingredient : "72.7x90.9cm_장지에 채색_2022"
   },
 
 
@@ -275,9 +275,9 @@ const sampleImages = [
 ];
 
 const Gallery_A: React.FC = () => {
-  const [selectedImage, setSelectedImage] = React.useState<{ src: string, title: string, description: string, ingredient: string } | null>(null);
+  const [selectedImage, setSelectedImage] = React.useState<{ src: string, title: string, description: string ,ingredient: string } | null>(null);
 
-  const handleImageClick = (image: { src: string, title: string, description: string, ingredient: string }) => {
+  const handleImageClick = (image: { src: string, title: string, description: string ,ingredient: string }) => {
     setSelectedImage(image);
   }
 
