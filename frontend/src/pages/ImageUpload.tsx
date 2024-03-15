@@ -64,6 +64,11 @@ const ImageUpload: React.FC = () => {
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const [password, setPassword] = useState('');
 
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [ingredient, setIngredient] = useState('');
+
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setSelectedFile(event.target.files[0]);
@@ -89,6 +94,7 @@ const ImageUpload: React.FC = () => {
     setIsPasswordModalOpen(true);
   };
 
+
   const verifyAndUpload = async () => {
     if (password !== UPLOAD_PASSWORD) {
       alert('관리자 외 업로드 불가합니다.');
@@ -96,14 +102,18 @@ const ImageUpload: React.FC = () => {
       setPassword('');
       return;
     }
-
+  
     console.log("Sending upload request");
-
+  
     if (selectedFile) { // selectedFile이 null이 아닌 경우에만 실행
       console.log("Sending upload request");
   
       const formData = new FormData();
       formData.append('image', selectedFile); // 여기서 selectedFile은 null이 아닙니다.
+      // 사용자 입력 추가
+      formData.append('title', title);
+      formData.append('description', description);
+      formData.append('ingredient', ingredient);
   
       try {
         // 환경 변수를 사용하거나 직접 업로드 URL을 지정하세요.
@@ -113,6 +123,7 @@ const ImageUpload: React.FC = () => {
             'Content-Type': 'multipart/form-data',
           },
         });
+  
         console.log('API URL:', process.env.REACT_APP_API_URL);
         console.log("Received response:", response.data.message);
   
@@ -123,11 +134,15 @@ const ImageUpload: React.FC = () => {
         // 이미지 선택 및 미리보기 초기화
         setSelectedFile(null);
         setPreview(null);
+        // 입력 필드 초기화
+        setTitle('');
+        setDescription('');
+        setIngredient('');
   
         // 파일 입력 필드 초기화
         document.querySelector<HTMLInputElement>('input[type="file"]')!.value = '';
-      } catch (error) {
-        console.error('Error uploading image:', error);
+      } catch (error: any) {
+        console.error('Error uploading image:', error.response ? error.response.data : error);
         setIsModalOpen(true);
         setIsPasswordModalOpen(false);
         setPassword(''); // 에러 발생 시 비밀번호 상태 초기화
@@ -138,7 +153,7 @@ const ImageUpload: React.FC = () => {
       setPassword(''); // 파일이 선택되지 않았을 때 비밀번호 상태 초기화
     }
   };
-
+  
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -151,6 +166,27 @@ const ImageUpload: React.FC = () => {
     <Box>
       <div className='Img'>{preview && <img className='img' src={preview} alt="Selected" />}</div>
 
+      {/* 입력 필드 추가 */}
+      <div className='InputFields'>
+        <input
+          type="text"
+          placeholder="제목"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <textarea
+          placeholder="설명"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="성분"
+          value={ingredient}
+          onChange={(e) => setIngredient(e.target.value)}
+        />
+      </div>
+      
       <div className='InputButton'>
         <input type="file" onChange={handleFileChange} />
         <button onClick={handleUpload}>Upload</button>
