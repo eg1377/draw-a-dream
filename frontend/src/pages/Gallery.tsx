@@ -75,7 +75,7 @@ const Gallery: React.FC = () => {
 
             <Stars />
             <Carousel />
-            {/* <Gallery_A /> */}
+            <Gallery_A />
             <ImageGallery/>
         </BackGround>
     );
